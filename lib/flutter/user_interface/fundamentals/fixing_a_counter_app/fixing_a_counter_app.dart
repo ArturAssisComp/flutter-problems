@@ -15,6 +15,9 @@ import 'package:flutter/material.dart';
  * ## Atividades
  * 1. Encontrar o defeito da aplicação
  * 2. Consertar a aplicação
+ * ## Links úteis
+ * - https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html
+ * - https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html
  */
 /******************************************************************************/
 
