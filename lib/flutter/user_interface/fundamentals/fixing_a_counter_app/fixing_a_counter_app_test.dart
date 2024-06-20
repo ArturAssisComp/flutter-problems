@@ -1,8 +1,9 @@
-import 'package:flutter_problems/flutter/user_interface/fundamentals/statelessWidget/fixing_a_counter_app/fixing_a_counter_app.dart';
-import 'package:flutter_problems/flutter/user_interface/fundamentals/statelessWidget/fixing_a_counter_app/fixing_a_counter_app_solution.dart'
+import 'package:flutter_problems/flutter/user_interface/fundamentals/fixing_a_counter_app/fixing_a_counter_app.dart';
+import 'package:flutter_problems/flutter/user_interface/fundamentals/fixing_a_counter_app/fixing_a_counter_app_solution.dart'
     as solution;
 import 'package:flutter_test/flutter_test.dart';
 
+//const kUseSolution = true;
 const kUseSolution = false;
 
 void main() {
