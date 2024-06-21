@@ -80,14 +80,16 @@ class CounterApp extends StatelessWidget {
 /**
  * # Tips
  * 1. Run and test the application
- * 2. Check the type of the widget
- * 3. Investigate the state variable
+ * 2. Focus on the CounterApp widget
+ * 3. Check the type of the widget
+ * 4. Investigate the state variable
  */
 
 /**
  * (PT-version)
  * # Dicas
  * 1. Rodar e testar a aplicação
- * 2. Investigar o tipo de widget
- * 3. Investigar a variável de estado
+ * 2. Focar no CounterApp
+ * 3. Investigar o tipo de widget
+ * 4. Investigar a variável de estado
  */
