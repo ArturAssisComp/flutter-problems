@@ -37,34 +37,75 @@ import 'package:flutter/material.dart';
  *  7. To avoid calling rebuild without necessity,  guard each color assignment
  *  with a conditional that checks if the state will not be the same. This could
  *  avoid performance problems if the build process is costly.
+ *  ```dart
+    // before
+    setState(() {
+      color = ColorType.green;
+    });
+
+    // after
+    if (color != ColorType.green) {
+      setState(() {
+        color = ColorType.green;
+      });
+    }
+ *  ```
  */
 
 /**
  * (PT-version)
- * # Problema (consertando defeitos de código)
- * ## Descrição
- * A seguir temos uma implementação defeituosa de um aplicativo do tipo
- * "Aplicativo de Cor". O aplicativo implementado não está de acordo com a
- * especificação abaixo. Sua tarefa é encontrar os defeitos e consertá-los.
+ * # Solução
+ * ## Descrição do problema
+ * - A tela inicial não é verde (em vez disso, é azul)
+ * - Os botões não têm os rótulos corretos (são Vermelho, Vermelho, Verde
+ * em vez de Vermelho, Verde, Azul)
+ * - Os botões não funcionam
+ *  - A cor não muda quando um botão é clicado
+ *  - O botão errado é destacado
  *
- * ## Especificação do aplicativo
- * O aplicativo consiste em uma página com um fundo de cor inicialmente verde.
- * Há um texto com o nome da atual cor de fundo e, abaixo, três botões rotulados
- * com as seguintes cores: Red (vermelho), Blue (azul) e Green (verde). O botão
- * com a cor selecionada deverá ser destacado dos demais.
- *
- * Como exemplo, se a cor de fundo atual for Green (verde) e o botão com rótulo
- * Blue (azul) é pressionado, a cor de fundo se torna azul e o botão pressionado
- * fica destacado enquanto o botão anterior perde o destaque.
- *
- * ## Atividades
- * 1. Encontrar os defeitos da aplicação
- * 2. Consertar a aplicação
- *
- * ## Links úteis
- * - https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html
- * - https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html
+ * ## Passos para resolver
+ *  1. Use o atributo value da variável de estado que mantém a propriedade
+ *  de cor (color) como argumento para o parâmetro backgroundColor do
+ *  Scaffold do ColorWidget. Isso associará o estado de cor ao fundo do
+ *  scaffold.
+ *  2. Altere a cor inicial de ColorType.blue para ColorType.green na
+ *  inicialização da variável de estado que mantém a propriedade de cor (color).
+ *  3. Transforme o ColorWidget de StatelessWidget para um StatefulWidget.
+ *  4. Corrija os parâmetros de cor dos botões. Eles devem receber, na ordem,
+ *  os seguintes argumentos: color.red, color.green e color.blue.
+ *  5. O botão vermelho está quase correto. Insira a atribuição para a cor
+ *  vermelha em um setState. O resultado é o seguinte:
+ *  ```dart
+    ColorButton(
+      color: ColorType.red,
+      isHighlighted: color == ColorType.red,
+      onPressed: () {
+        setState(() {
+          color = ColorType.red;
+        });
+      },
+    ),
+ *  ```
+ *  6. Agora, o botão vermelho está correto. Siga o padrão para os outros
+ *  botões.
+ *  7. Para evitar chamar build sem necessidade, proteja cada atribuição de
+ *  cor com uma condição que verifica se o estado não será o mesmo. Isso pode
+ *  evitar problemas de desempenho se o processo de build for custoso.
+ *  ```dart
+    // antes
+    setState(() {
+      color = ColorType.green;
+    });
+
+    // depois
+    if (color != ColorType.green) {
+      setState(() {
+        color = ColorType.green;
+      });
+    }
+ *  ```
  */
+
 /******************************************************************************/
 
 void main() => runApp(const MainApp());
